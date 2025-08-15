@@ -1,46 +1,31 @@
-### Java / Maven ###
-target/
-*.log
-*.class
-
-### Spring Boot ###
-application.properties
-application.yml
-.env
-
-### Maven Wrapper ###
-!.mvn/wrapper/maven-wrapper.jar
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+# === Gradle（使っている場合）===
+.gradle/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+# ※ Gradle の wrapper はコミットOK: gradlew, gradlew.bat, gradle/wrapper/*
+# 環境依存の秘密が入ることがある
+gradle.properties
 
-### VS Code ###
-.vscode/
+# === Spring Boot の設定（秘密除外）===
+# 実運用の値はコミットしない
+src/main/resources/application*.yml
+src/main/resources/application*.properties
+.env
+.env.*
+.env.*.local
 
-### OS Junk ###
-.DS_Store
-Thumbs.db
+# 代わりに「例」だけコミットする（除外ルールの打ち消し）
+!src/main/resources/application-example.yml
 
-application.properties
+# === DB/ローカルファイル ===
+*.h2.db
+*.mv.db
+*.db
+
+# === 証明書/鍵類 ===
+*.jks
+*.p12
+*.keystore
+
+# === ログ ===
+logs/
+*.log
